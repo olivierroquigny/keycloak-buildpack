@@ -244,3 +244,18 @@ function add_templates() {
     fi
   fi
 }
+
+function add_plugins() {
+  local keycloak_plugins_dir="$1"
+  local keycloak_path="$2"
+  if [ -d "${keycloak_plugins_dir}" ]; then
+    cp_keycloak_plugins=$(cp -R "${keycloak_plugins_dir}"/* "${keycloak_path}/providers")
+    if [ "${cp_keycloak_plugins}" != "" ]; then
+      echo "copy keycloak plugins: ${cp_keycloak_plugins}"
+    fi
+  else
+    if [ -n "$BUILDPACK_DEBUG" ]; then
+      echo "KEYCLOAK_PLUGINS_DIR defined and ${keycloak_plugins_dir} dir does not exist!!!"
+    fi
+  fi
+}
