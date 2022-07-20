@@ -253,6 +253,9 @@ function add_plugins() {
     if [ "${cp_keycloak_plugins}" != "" ]; then
       echo "copy keycloak plugins: ${cp_keycloak_plugins}"
     fi
+    echo "!_! copy keycloak plugins: ${cp_keycloak_plugins}"
+    echo "!_! ls plugins: "
+    echo "$(ls ${keycloak_path}/providers)"
   else
     if [ -n "$BUILDPACK_DEBUG" ]; then
       echo "KEYCLOAK_PLUGINS_DIR defined and ${keycloak_plugins_dir} dir does not exist!!!"
