@@ -233,7 +233,9 @@ function fetch_provider_dist() {
 function add_templates() {
   local keycloak_templates_dir="$1"
   local keycloak_path="$2"
+	echo "keycloak_templates_dir: ${keycloak_templates_dir}"
   if [ -d "${keycloak_templates_dir}" ]; then
+		echo "cp_keycloak_themes: ${cp_keycloak_themes}"
     cp_keycloak_themes=$(cp -R "${keycloak_templates_dir}"/* "${keycloak_path}/themes")
     if [ "${cp_keycloak_themes}" != "" ]; then
       echo "copy keycloak themes: ${cp_keycloak_themes}"
